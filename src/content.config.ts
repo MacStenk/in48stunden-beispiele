@@ -15,7 +15,7 @@ const kunden = defineCollection({
   loader: glob({ base: './src/inhalte', pattern: '*/kunde.yml' }),
   schema: z.object({
     name: z.string(),
-    kurzbeschreibung: z.string(),
+    branche: z.string(),
     ort: z.string(),
     inhaber: z.string(),
     strasse: z.string(),

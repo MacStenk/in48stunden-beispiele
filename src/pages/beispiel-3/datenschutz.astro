@@ -2,12 +2,12 @@
 import { getEntry, render } from 'astro:content';
 import Rahmen from '../../layouts/Rahmen.astro';
 import '../../gestaltung/basis.css';
-import '../../gestaltung/treppenbau.css';
+import '../../gestaltung/beispiel-3.css';
 
-const seite = (await getEntry('inhalte', 'treppenbau/datenschutz'))!;
+const seite = (await getEntry('inhalte', 'beispiel-3/datenschutz'))!;
 const { Content } = await render(seite);
 ---
-<Rahmen betrieb="treppenbau" titel={seite.data.titel}>
+<Rahmen betrieb="beispiel-3" titel={seite.data.titel}>
   <div class="inhalt schmal text-seite">
     <h1>{seite.data.titel}</h1>
     <Content />

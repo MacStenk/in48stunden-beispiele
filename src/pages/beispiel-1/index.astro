@@ -1,13 +1,13 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Rahmen from '../../layouts/Rahmen.astro';
-import Stufen from '../../components/treppenbau/Stufen.astro';
-import Foto from '../../components/treppenbau/Foto.astro';
+import Stufen from '../../components/beispiel-1/Stufen.astro';
+import Foto from '../../components/beispiel-1/Foto.astro';
 import '../../gestaltung/basis.css';
-import '../../gestaltung/treppenbau.css';
+import '../../gestaltung/beispiel-1.css';
 
 const [start, angebot, ablauf, vertrauen, kontakt, kunde] = await Promise.all(
-  ['start', 'angebot', 'ablauf', 'vertrauen', 'kontakt'].map((n) => getEntry('inhalte', `treppenbau/${n}`)).concat(getEntry('kunden', 'treppenbau/kunde')),
+  ['start', 'angebot', 'ablauf', 'vertrauen', 'kontakt'].map((n) => getEntry('inhalte', `beispiel-1/${n}`)).concat(getEntry('kunden', 'beispiel-1/kunde')),
 );
 const { Content: Start } = await render(start!);
 const { Content: Angebot } = await render(angebot!);
@@ -16,7 +16,7 @@ const { Content: Vertrauen } = await render(vertrauen!);
 const { Content: Kontakt } = await render(kontakt!);
 const k = kunde!.data;
 ---
-<Rahmen betrieb="treppenbau" titel="Holztreppen für Haus und Wohnung">
+<Rahmen betrieb="beispiel-1" titel="Holztreppen für Haus und Wohnung">
   <div class="inhalt einstieg">
     <div>
       <h1>{start!.data.titel}</h1>

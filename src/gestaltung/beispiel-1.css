@@ -1,4 +1,4 @@
-/* Treppenbau Thalberg: warm, kräftig, handwerklich. Farben kommen aus kunde.yml. */
+/* Beispiel 1 (Handwerk): warm, kräftig, handwerklich. Farben kommen aus kunde.yml. */
 @font-face { font-family: "Zilla Slab"; font-weight: 700; font-display: swap; src: url("./schriften/zilla-slab-latin-700-normal.woff2") format("woff2"); }
 @font-face { font-family: "Zilla Slab"; font-weight: 600; font-display: swap; src: url("./schriften/zilla-slab-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Source Sans 3"; font-weight: 400; font-display: swap; src: url("./schriften/source-sans-3-latin-400-normal.woff2") format("woff2"); }

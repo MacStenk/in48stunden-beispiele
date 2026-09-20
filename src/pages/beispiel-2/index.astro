@@ -1,13 +1,13 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Rahmen from '../../layouts/Rahmen.astro';
-import Welle from '../../components/praxis/Welle.astro';
-import Foto from '../../components/praxis/Foto.astro';
+import Welle from '../../components/beispiel-2/Welle.astro';
+import Foto from '../../components/beispiel-2/Foto.astro';
 import '../../gestaltung/basis.css';
-import '../../gestaltung/praxis.css';
+import '../../gestaltung/beispiel-2.css';
 
 const [start, vertrauen, angebot, ablauf, kontakt, kunde] = await Promise.all(
-  ['start', 'vertrauen', 'angebot', 'ablauf', 'kontakt'].map((n) => getEntry('inhalte', `praxis/${n}`)).concat(getEntry('kunden', 'praxis/kunde')),
+  ['start', 'vertrauen', 'angebot', 'ablauf', 'kontakt'].map((n) => getEntry('inhalte', `beispiel-2/${n}`)).concat(getEntry('kunden', 'beispiel-2/kunde')),
 );
 const { Content: Start } = await render(start!);
 const { Content: Vertrauen } = await render(vertrauen!);
@@ -16,7 +16,7 @@ const { Content: Ablauf } = await render(ablauf!);
 const { Content: Kontakt } = await render(kontakt!);
 const k = kunde!.data;
 ---
-<Rahmen betrieb="praxis" titel="Physiotherapie in Beispielstadt">
+<Rahmen betrieb="beispiel-2" titel="Physiotherapie in Beispielstadt">
   <section class="einstieg">
     <div class="inhalt">
       <h1>{start!.data.titel}</h1>

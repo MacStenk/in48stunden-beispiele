@@ -1,0 +1,117 @@
+/* Beispiel 3 (Coaching): Kachelwand. Die Seite ist ein einziges Raster, keine Folge von Bändern.
+   Scharfe Ecken, Fugen von 2 px, eine Schrift in zwei Schnitten, ein Akzent (Gelb). Farben aus kunde.yml. */
+@font-face { font-family: "Schibsted Grotesk"; font-weight: 400; font-display: swap; src: url("./schriften/schibsted-grotesk-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Schibsted Grotesk"; font-weight: 800; font-display: swap; src: url("./schriften/schibsted-grotesk-latin-800-normal.woff2") format("woff2"); }
+
+body { background: var(--grund); color: var(--text); font-family: "Schibsted Grotesk", system-ui, sans-serif; }
+h1, h2, h3, .name { font-weight: 800; line-height: 1.05; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+strong { font-weight: 800; }
+p { margin: 0 0 1rem; max-width: 34rem; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+.hinweis { font-weight: 400; }
+
+/* Kopf und Fuß laufen so breit wie die Wand */
+.kopf .inhalt, .fuss .inhalt { max-width: 90rem; }
+.kopf-innen { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 2rem; padding-block: 1rem; }
+.name { font-size: 1.5rem; text-decoration: none; }
+.kopf nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.kopf nav a { padding-block: .5rem; text-decoration-thickness: 2px; text-underline-offset: .25em; transition: color 160ms ease; }
+.kopf nav a:hover { color: var(--akzent); }
+
+.knopf { display: inline-block; min-height: 3rem; margin-top: .5rem; padding: .8rem 1.5rem; background: var(--gelb); color: var(--text); font-weight: 800; text-decoration: none; transition: background-color 180ms ease; }
+.knopf:hover { background: var(--hell); }
+
+.nur-leser { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Wand: Fugen sind der durchscheinende Grund. Handy: eine Spalte. */
+.wand-rahmen { max-width: 90rem; margin-inline: auto; padding-inline: 1.25rem; padding-block: 0 1.5rem; }
+.wand {
+  --fuge: 2px;
+  --fokus: var(--akzent);
+  display: grid; gap: var(--fuge);
+  border: var(--fuge) solid var(--text); background: var(--text);
+  grid-template-columns: 1fr;
+  grid-template-areas: "einstieg" "foto" "angebot" "ablauf" "vertrauen" "kontakt";
+}
+/* :where() hält die Spezifität niedrig, damit Kacheln wie .angebot und .foto sie überschreiben können */
+.wand > :where(section, .foto) { padding: clamp(1.25rem, 3vw, 2.25rem); }
+.wand h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+
+/* Kachel 1: Einstieg, die laute Fläche */
+.einstieg { container-type: inline-size; grid-area: einstieg; background: var(--akzent); color: var(--hell); --fokus: var(--gelb); display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: 20rem; }
+.einstieg h1 { font-size: clamp(2.4rem, 11cqi, 6rem); margin-bottom: 1.25rem; }
+.einstieg p { font-size: 1.25rem; color: var(--hellgedaempft); }
+
+/* Kachel 2: Fläche für ein späteres Foto, ohne Text */
+.foto { grid-area: foto; position: relative; min-height: 9rem; padding: 0; background: var(--flaeche); }
+.foto-platz { position: absolute; inset: 0; margin: 0; }
+.foto-platz svg { width: 100%; height: 100%; }
+.fp-grund { fill: var(--flaeche); }
+.fp-a { fill: var(--akzent); }
+.fp-b { fill: var(--text); }
+.fp-c { fill: var(--gelb); }
+
+/* Kacheln 3 bis 5: die Formate teilen sich die Spuren der Wand (Rückfall: einfaches Raster) */
+.angebot { grid-area: angebot; padding: 0; background: var(--text); display: grid; }
+.angebot ul { display: grid; gap: var(--fuge); }
+.angebot li { padding: clamp(1.25rem, 3vw, 2.25rem); background: var(--grund); container-type: inline-size; }
+.angebot li:nth-child(2) { background: var(--flaeche); }
+.angebot strong { display: block; margin-bottom: .5rem; font-size: clamp(1.4rem, 8cqi, 2.25rem); line-height: 1.05; letter-spacing: -.02em; }
+
+/* Kachel 6: Ablauf, die einzige echte Folge, darum mit Zahlen */
+.ablauf { grid-area: ablauf; background: var(--text); color: var(--hell); --fokus: var(--gelb); }
+.ablauf ol { counter-reset: schritt; display: grid; gap: 1.5rem; }
+.ablauf li { counter-increment: schritt; }
+.ablauf li::before { content: counter(schritt); display: block; margin-bottom: .25rem; font-size: 2.5rem; font-weight: 800; line-height: 1; color: var(--gelb); }
+.ablauf strong { display: block; font-size: 1.25rem; }
+
+/* Kachel 7: Über mich */
+.vertrauen { grid-area: vertrauen; background: var(--grund); }
+.vertrauen > p { font-size: 1.35rem; line-height: 1.3; font-weight: 800; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+.vertrauen ul { display: grid; gap: 1rem; }
+.vertrauen strong { display: block; }
+
+/* Kachel 8: Kontakt, die zweite laute Fläche */
+.kontakt { container-type: inline-size; grid-area: kontakt; background: var(--gelb); --fokus: var(--text); }
+.kontakt-mail { display: inline-block; margin-block: .25rem 1rem; font-size: clamp(1.25rem, 9cqi, 2.25rem); font-weight: 800; line-height: 1.1; overflow-wrap: anywhere; text-decoration-thickness: 3px; text-underline-offset: .2em; transition: color 180ms ease; }
+.kontakt-mail:hover { color: var(--akzent); }
+.kontakt-liste { margin: 0; }
+.kontakt-liste a { font-weight: 800; }
+.kontakt-liste span { display: block; }
+
+/* Mittel: zwei Spalten. Formate: eins hoch, zwei und drei gestapelt. */
+@media (min-width: 40em) {
+  .wand { grid-template-columns: repeat(2, 1fr); grid-template-areas: "einstieg einstieg" "foto foto" "angebot angebot" "angebot angebot" "ablauf ablauf" "vertrauen kontakt"; }
+  .foto { min-height: 12rem; }
+  .angebot { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto auto; grid-template-columns: subgrid; grid-template-rows: subgrid; }
+  .angebot ul { grid-column: 1 / -1; grid-row: 1 / -1; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto auto; grid-template-columns: subgrid; grid-template-rows: subgrid; }
+  .angebot li:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+  .angebot li:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .angebot li:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .ablauf ol { grid-template-columns: 1fr 1fr; }
+}
+
+/* Breit: sechs Spalten. Das Foto läuft hoch über vier Zeilen, jede Zelle ist belegt. */
+@media (min-width: 64em) {
+  .wand {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "einstieg  einstieg  einstieg  einstieg  foto     foto"
+      "einstieg  einstieg  einstieg  einstieg  foto     foto"
+      "angebot   angebot   angebot   angebot   foto     foto"
+      "angebot   angebot   angebot   angebot   foto     foto"
+      "ablauf    ablauf    ablauf    ablauf    ablauf   ablauf"
+      "vertrauen vertrauen vertrauen vertrauen kontakt  kontakt";
+  }
+  .angebot { grid-template-columns: repeat(4, 1fr); grid-template-columns: subgrid; }
+  .angebot ul { grid-template-columns: repeat(4, 1fr); grid-template-columns: subgrid; }
+  .angebot li:nth-child(1) { grid-column: 1 / 3; }
+  .angebot li:nth-child(2) { grid-column: 3 / 5; }
+  .angebot li:nth-child(3) { grid-column: 3 / 5; }
+  .ablauf ol { grid-template-columns: repeat(4, 1fr); }
+  .einstieg { min-height: 24rem; }
+}
+
+/* Impressum und Datenschutz: linksbündig an der Wand, Zeilen nicht breiter als 42 rem */
+main > .text-seite { max-width: 90rem; }
+.text-seite > * { max-width: 42rem; }

@@ -1,7 +1,7 @@
 # Alles Kundenspezifische dieses Beispiels steht hier. Die Texte liegen in den Markdown-Dateien daneben.
-# Erfundener Betrieb: keine echte Anschrift, keine echte Rufnummer, E-Mail nur auf example.org.
-name: Physiotherapie Lindenhof
-kurzbeschreibung: Praxis für Physiotherapie
+# Beispiel ohne Firmennamen: Name, Anschrift und Inhaber sind Platzhalter, Rufnummer nur Nullen, E-Mail nur auf example.org.
+name: Dein Firmenname
+branche: Praxis
 ort: Beispielstadt
 inhaber: "[Name der Praxisleitung]"
 strasse: "[Straße und Hausnummer]"

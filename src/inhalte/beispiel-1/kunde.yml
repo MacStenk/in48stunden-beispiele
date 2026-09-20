@@ -1,7 +1,7 @@
 # Alles Kundenspezifische dieses Beispiels steht hier. Die Texte liegen in den Markdown-Dateien daneben.
-# Erfundener Betrieb: keine echte Anschrift, keine echte Rufnummer, E-Mail nur auf example.org.
-name: Treppenbau Thalberg
-kurzbeschreibung: Holztreppen für Haus und Wohnung
+# Beispiel ohne Firmennamen: Name, Anschrift und Inhaber sind Platzhalter, Rufnummer nur Nullen, E-Mail nur auf example.org.
+name: Dein Firmenname
+branche: Handwerk
 ort: Beispielstadt
 inhaber: "[Name des Inhabers]"
 strasse: "[Straße und Hausnummer]"

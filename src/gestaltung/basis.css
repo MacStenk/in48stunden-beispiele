@@ -28,3 +28,7 @@ a { color: inherit; }
 .text-seite h2 { font-size: 1.5rem; margin: 2rem 0 .5rem; }
 .text-seite dt { font-weight: 600; margin-top: 1rem; }
 .text-seite dd { margin: 0; }
+
+/* Untertitel im Kopf: nur die Branche */
+.marke { display: flex; flex-direction: column; }
+.untertitel { font-size: .875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gedaempft); }
