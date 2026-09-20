@@ -1,9 +1,10 @@
 /* Grundlagen für alle Beispiele: Maße, Lesbarkeit, Tastatur. Das Aussehen steckt je Betrieb in einer eigenen Datei. */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; color-scheme: light; }
 body { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
 svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
+a, button { touch-action: manipulation; }
 
 .inhalt { max-width: 68rem; margin-inline: auto; padding-inline: 1.25rem; }
 .schmal { max-width: 42rem; }
@@ -16,7 +17,6 @@ a { color: inherit; }
 
 /* Luft am Fensterrand, damit der Fokusrahmen (3 px + 3 px Abstand) nicht abgeschnitten wird */
 html { scroll-padding-block: 1rem; }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
 /* Fuß und Rechtstexte (Schrift kommt aus der Datei des Betriebs) */

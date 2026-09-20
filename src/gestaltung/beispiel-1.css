@@ -5,7 +5,7 @@
 @font-face { font-family: "Source Sans 3"; font-weight: 600; font-display: swap; src: url("./schriften/source-sans-3-latin-600-normal.woff2") format("woff2"); }
 
 body { background: var(--grund); color: var(--text); font-family: "Source Sans 3", system-ui, sans-serif; }
-h1, h2, h3, .name { font-family: "Zilla Slab", Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+h1, h2, h3, .name { font-family: "Zilla Slab", Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
 h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
 strong { font-weight: 600; }
 p { margin: 0 0 1rem; max-width: 40rem; }

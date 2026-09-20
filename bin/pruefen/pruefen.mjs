@@ -1,7 +1,17 @@
-// Abnahme Schritt 5: misst die gebauten Seiten in echtem Chrome (Debug-Protokoll, ohne Zusatzpakete).
-// Aufruf: BASE=http://localhost:4392 DBG=http://localhost:9333 OUT=<Ordner> node pruefen.mjs
-// Misst je Seite: Kontrast (gerenderte Farben), Tastatur (echte Tab-Ereignisse), Bewegung (mit/ohne
-// prefers-reduced-motion), Links, Netzwerk, Überlauf am Handy, Grundstruktur. Schreibt messung.json und Bilder.
+// Abnahme-Messung: misst die gebauten Seiten in echtem Chrome (Debug-Protokoll, ohne Zusatzpakete).
+// Je Seite und Breite (1440 und 390 px): Kontrast an den gerenderten Farben, Tastatur mit echten Tab-Ereignissen,
+// Bewegung mit und ohne prefers-reduced-motion, Links, Netzwerk, Überlauf, Bildbeschreibungen, Grundstruktur.
+//
+// So läuft es (alles in einem Terminal, am Ende die Prozesse beenden):
+//   npm run build
+//   python3 -m http.server 4392 -d dist &
+//   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --remote-debugging-port=9333 \
+//     --user-data-dir=/tmp/chrome-prof --disable-gpu --no-first-run about:blank &
+//   OUT=/tmp/messung BASE=http://localhost:4392 DBG=http://localhost:9333 node bin/pruefen/pruefen.mjs
+//   OUT=/tmp/messung BASE=http://localhost:4392 node bin/pruefen/links.mjs
+//   python3 bin/pruefen/auswerten_kontrast.py /tmp/messung   (braucht Pillow: pip install pillow)
+//   python3 bin/pruefen/auswerten_rest.py /tmp/messung
+// Die Seitenliste (SEITEN) steht unten und muss bei neuen Seiten ergänzt werden.
 import { mkdirSync, writeFileSync } from 'node:fs';
 
 const BASE = process.env.BASE ?? 'http://localhost:4392';

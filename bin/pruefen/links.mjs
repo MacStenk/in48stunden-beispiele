@@ -1,5 +1,5 @@
-// Linkprüfung: alle Links aller Seiten (aus messung.json), interne Ziele abrufen, Sprungmarken und Adressen prüfen,
-// Erreichbarkeit aller Seiten von der Übersicht aus. Aufruf: BASE=http://localhost:4392 OUT=<Ordner> node links.mjs
+// Linkprüfung: alle Links aller Seiten (aus messung.json von pruefen.mjs), interne Ziele abrufen, Sprungmarken und
+// Adressen prüfen, Erreichbarkeit aller Seiten von der Übersicht aus. Aufruf siehe pruefen.mjs.
 import { readFileSync } from 'node:fs';
 const BASE = process.env.BASE ?? 'http://localhost:4392', OUT = process.env.OUT ?? '.';
 const daten = JSON.parse(readFileSync(`${OUT}/messung.json`, 'utf8')).filter((d) => d.breite === 1440);

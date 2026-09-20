@@ -1,21 +1,25 @@
 ---
+import '../gestaltung/basis.css';
+import '../gestaltung/uebersicht.css';
 ---
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F3F4F6" />
     <title>Beispielseiten</title>
     <link rel="icon" href="data:," />
   </head>
   <body>
-    <main>
+    <a class="sprungmarke" href="#inhalt">Zum Inhalt springen</a>
+    <main id="inhalt" class="inhalt schmal">
       <h1>Beispielseiten</h1>
-      <p>Drei Beispiele für erfundene Betriebe, mit vollem Quelltext.</p>
+      <p>Drei Layout-Beispiele mit vollem Quelltext.</p>
       <ul>
-        <li><a href="/beispiel-1/">Beispiel 1: Handwerk</a></li>
-        <li><a href="/beispiel-2/">Beispiel 2: Praxis</a></li>
-        <li><a href="/beispiel-3/">Beispiel 3: Coaching</a></li>
+        <li><a href="/beispiel-1/"><strong>Beispiel 1: Handwerk</strong><span>Bänder, Text links, Bild rechts</span></a></li>
+        <li><a href="/beispiel-2/"><strong>Beispiel 2: Praxis</strong><span>Bänder, mittig, mit Welle</span></a></li>
+        <li><a href="/beispiel-3/"><strong>Beispiel 3: Coaching</strong><span>Kachelwand, ein Raster</span></a></li>
       </ul>
     </main>
   </body>

@@ -1,0 +1,13 @@
+/* Übersichtsseite: ruhig und schlicht, Systemschrift (0 KB), eigene Farben, weil es keine kunde.yml gibt. */
+:root { --grund: #F3F4F6; --text: #16181D; --gedaempft: #4A4F5B; --akzent: #24308F; }
+body { background: var(--grund); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { padding-block: clamp(2.5rem, 8vw, 5rem); }
+h1 { margin: 0 0 .75rem; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; text-wrap: balance; }
+p { margin: 0 0 2rem; color: var(--gedaempft); }
+ul { margin: 0; padding: 0; list-style: none; }
+li { border-top: 2px solid var(--text); }
+li:last-child { border-bottom: 2px solid var(--text); }
+li a { display: block; min-height: 3rem; padding: .9rem 0; text-decoration: none; transition: color 160ms ease; }
+li a:hover { color: var(--akzent); }
+li strong { display: block; font-size: 1.25rem; }
+li span { display: block; color: var(--gedaempft); }

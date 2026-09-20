@@ -1,5 +1,5 @@
 # Wertet Tastatur, Bewegung, Links, Netzwerk und Struktur aus messung.json aus.
-import json, sys
+import json, os, sys
 ordner = sys.argv[1]
 daten = json.load(open(f'{ordner}/messung.json'))
 print('== TASTATUR (Tab durch die ganze Seite, echte Tab-Ereignisse) ==')
@@ -62,7 +62,8 @@ print()
 print('== NETZWERK: alle Anfragen je Seite (Desktop) ==')
 for d in daten:
     if d['breite'] != 1440: continue
-    fremd = [u for u in d['netzAlleUrls'] if not u.startswith('http://localhost:4392') and not u.startswith('data:')]
+    eigen = os.environ.get('BASE', 'http://localhost:4392')
+    fremd = [u for u in d['netzAlleUrls'] if not u.startswith(eigen) and not u.startswith('data:')]
     schlecht = [n for n in d['netz'] if n.get('status', 200) >= 400]
     print(f"  {d['pfad']:24} Anfragen={len(d['netzAlleUrls'])} fremd={fremd} Status>=400={[ (n['url'].split('4392')[-1], n['status']) for n in schlecht]} Konsole={d['konsole']}")
 

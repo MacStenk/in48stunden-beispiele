@@ -76,7 +76,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .kontakt-mail { display: inline-block; margin-block: .25rem 1rem; font-size: clamp(1.25rem, 9cqi, 2.25rem); font-weight: 800; line-height: 1.1; overflow-wrap: anywhere; text-decoration-thickness: 3px; text-underline-offset: .2em; transition: color 180ms ease; }
 .kontakt-mail:hover { color: var(--akzent); }
 .kontakt-liste { margin: 0; }
-.kontakt-liste a { font-weight: 800; }
+.kontakt-liste a { display: inline-block; min-height: 1.5rem; font-weight: 800; }
 .kontakt-liste span { display: block; }
 
 /* Mittel: zwei Spalten. Formate: eins hoch, zwei und drei gestapelt. */
