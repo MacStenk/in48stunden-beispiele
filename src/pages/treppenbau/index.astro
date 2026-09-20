@@ -1,8 +1,8 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Rahmen from '../../layouts/Rahmen.astro';
-import Stufen from '../../components/Stufen.astro';
-import FotoPlatzhalter from '../../components/FotoPlatzhalter.astro';
+import Stufen from '../../components/treppenbau/Stufen.astro';
+import Foto from '../../components/treppenbau/Foto.astro';
 import '../../gestaltung/basis.css';
 import '../../gestaltung/treppenbau.css';
 
@@ -46,7 +46,7 @@ const k = kunde!.data;
         <h2>{vertrauen!.data.titel}</h2>
         <Vertrauen />
       </div>
-      <FotoPlatzhalter beschriftung={vertrauen!.data.foto} />
+      <Foto />
     </div>
   </section>
 

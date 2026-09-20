@@ -1,6 +1,5 @@
 ---
 titel: Darauf können Sie sich verlassen
-foto: Dein Foto von der Werkstatt
 ---
 - **Ein Festpreis nach der Besichtigung.** Er gilt, auch wenn der Bau länger dauert als gedacht.
 - **Holz aus der Region.** Wir kaufen bei Sägewerken in der Nähe und wissen, woher jedes Brett kommt.

@@ -9,6 +9,11 @@ plz_ort: "[PLZ] Beispielstadt"
 telefon: "0000 000000"
 email: info@example.org
 zeiten: Montag bis Freitag, 7 bis 16 Uhr
+menue:
+  - { id: angebot, text: Angebot }
+  - { id: ablauf, text: Ablauf }
+  - { id: vertrauen, text: Vertrauen }
+  - { id: kontakt, text: Kontakt }
 farben:
   grund: "#F5EFE4"
   flaeche: "#E9DDC8"

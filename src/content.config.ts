@@ -7,7 +7,6 @@ const inhalte = defineCollection({
   schema: z.object({
     titel: z.string(),
     knopf: z.string().optional(),
-    foto: z.string().optional(),
   }),
 });
 
@@ -24,6 +23,7 @@ const kunden = defineCollection({
     telefon: z.string(),
     email: z.string(),
     zeiten: z.string(),
+    menue: z.array(z.object({ id: z.string(), text: z.string() })),
     farben: z.record(z.string()),
   }),
 });

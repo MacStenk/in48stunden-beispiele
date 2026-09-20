@@ -64,29 +64,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (min-width: 52em) { .vertrauen-innen { grid-template-columns: 1fr 1fr; } }
 
 /* Platzhalter für spätere Fotos */
-.foto-platz { position: relative; margin: 0; }
+.foto-platz { margin: 0; }
 .foto-platz svg { width: 100%; }
 .fp-grund { fill: #DCC9A8; }
 .fp-linie { fill: none; stroke: var(--akzent); stroke-width: 6; stroke-linejoin: round; }
 .fp-fein { stroke-width: 2; opacity: .5; }
 .fp-sonne { fill: var(--grund); }
-.foto-platz figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: .6rem 1rem; background: var(--dunkel); color: var(--grund); font-weight: 600; }
 
 /* Kontakt */
 .kontakt { background: var(--dunkel); color: var(--grund); }
 .kontakt-liste { display: grid; gap: .25rem; margin: 1.5rem 0; }
 .kontakt-liste a { font-size: 1.5rem; font-family: "Zilla Slab", Georgia, serif; font-weight: 700; }
 .kontakt-liste span { display: block; }
-
-/* Fuß */
-.fuss { padding-block: 2rem; }
-.hinweis { margin-bottom: .5rem; max-width: none; font-weight: 600; }
-.fuss-links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin: 1rem 0 0; }
-.fuss-links a { padding-block: .5rem; }
-
-/* Rechtstexte */
-.text-seite { padding-block: clamp(2rem, 6vw, 4rem); }
-.text-seite h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; }
-.text-seite h2 { font-size: 1.5rem; margin: 2rem 0 .5rem; }
-.text-seite dt { font-weight: 600; margin-top: 1rem; }
-.text-seite dd { margin: 0; }

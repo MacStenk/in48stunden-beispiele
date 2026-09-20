@@ -16,3 +16,15 @@ a { color: inherit; }
 
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* Fuß und Rechtstexte (Schrift kommt aus der Datei des Betriebs) */
+.fuss { padding-block: 2rem; }
+.hinweis { margin-bottom: .5rem; max-width: none; font-weight: 600; }
+.fuss-links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin: 1rem 0 0; }
+.fuss-links a { padding-block: .5rem; }
+
+.text-seite { padding-block: clamp(2rem, 6vw, 4rem); }
+.text-seite h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; }
+.text-seite h2 { font-size: 1.5rem; margin: 2rem 0 .5rem; }
+.text-seite dt { font-weight: 600; margin-top: 1rem; }
+.text-seite dd { margin: 0; }

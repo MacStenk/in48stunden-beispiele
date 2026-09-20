@@ -1,0 +1,15 @@
+---
+import { getEntry, render } from 'astro:content';
+import Rahmen from '../../layouts/Rahmen.astro';
+import '../../gestaltung/basis.css';
+import '../../gestaltung/praxis.css';
+
+const seite = (await getEntry('inhalte', 'praxis/datenschutz'))!;
+const { Content } = await render(seite);
+---
+<Rahmen betrieb="praxis" titel={seite.data.titel}>
+  <div class="inhalt schmal text-seite">
+    <h1>{seite.data.titel}</h1>
+    <Content />
+  </div>
+</Rahmen>

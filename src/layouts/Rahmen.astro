@@ -21,10 +21,7 @@ const basis = `/${betrieb}/`;
       <div class="inhalt kopf-innen">
         <a class="name" href={basis}>{kunde.name}</a>
         <nav aria-label="Hauptmenü">
-          <a href={`${basis}#angebot`}>Angebot</a>
-          <a href={`${basis}#ablauf`}>Ablauf</a>
-          <a href={`${basis}#vertrauen`}>Vertrauen</a>
-          <a href={`${basis}#kontakt`}>Kontakt</a>
+          {kunde.menue.map((punkt) => <a href={`${basis}#${punkt.id}`}>{punkt.text}</a>)}
         </nav>
       </div>
     </header>
@@ -33,8 +30,7 @@ const basis = `/${betrieb}/`;
     </main>
     <footer class="fuss">
       <div class="inhalt">
-        <p class="hinweis">Beispielseite. Der Betrieb ist erfunden, alle Angaben sind Platzhalter.</p>
-        <p class="hinweis">Betrieb erfunden, Fotos kommen vom Kunden.</p>
+        <p class="hinweis">Beispielseite für einen erfundenen Betrieb. Fotos stellt der Kunde.</p>
         <p class="fuss-links">
           <a href={`${basis}impressum/`}>Impressum</a>
           <a href={`${basis}datenschutz/`}>Datenschutz</a>
