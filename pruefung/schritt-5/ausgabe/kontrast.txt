@@ -1,0 +1,52 @@
+Seite                        Breite Texte kleinster Soll nicht ok | Pixel: geprüft / Abweichung bg
+/                              1440     5       9.4  4.5        0 | 5 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/                               390     5       9.4  4.5        0 | 5 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-1/                   1440    52      6.66  4.5        0 | 51 / 3   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-1/                    390    52      6.66  4.5        0 | 51 / 3   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-1/impressum/         1440    23      7.27  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-1/impressum/          390    23      7.27  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-1/datenschutz/       1440    23      7.27  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-1/datenschutz/        390    23      7.27  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-2/                   1440    53       5.4  4.5        0 | 52 / 4   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-2/                    390    53       5.4  4.5        0 | 52 / 4   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-2/impressum/         1440    23      6.52  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-2/impressum/          390    23      6.52  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-2/datenschutz/       1440    23      6.52  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-2/datenschutz/        390    23      6.52  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-3/                   1440    46      5.65  4.5        0 | 45 / 1   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-3/                    390    46      5.65  4.5        0 | 45 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-3/impressum/         1440    23      7.62  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-3/impressum/          390    23      7.62  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-3/datenschutz/       1440    23      7.62  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+/beispiel-3/datenschutz/        390    23      7.62  4.5        0 | 22 / 0   Pixel-Text unter Soll (Antialias möglich): 0
+
+Alle Kombinationen, die das Soll NICHT erfüllen: 0
+
+Kleinste drei Verhältnisse je Seite (Desktop):
+  /                            #0000ee auf #ffffff = 9.4 (Soll 4.5, 16px, 'Beispiel 1: Handwe') | #000000 auf #ffffff = 21 (Soll 3, 32px, 'Beispielseiten')
+  /beispiel-1/                 #8a3d12 auf #e9ddc8 = 5.67 (Soll 3, 30px, 'Zeichen counter(sc') | #f5efe4 auf #8a3d12 = 6.66 (Soll 4.5, 17px, 'Anfrage stellen') | #5c4b3a auf #f5efe4 = 7.27 (Soll 4.5, 14px, 'Handwerk')
+  /beispiel-1/impressum/       #5c4b3a auf #f5efe4 = 7.27 (Soll 4.5, 14px, 'Handwerk') | #f5efe4 auf #2a2018 = 13.92 (Soll 4.5, 17px, 'Zum Inhalt springe') | #2a2018 auf #f5efe4 = 13.92 (Soll 3, 22px, 'Dein Firmenname')
+  /beispiel-1/datenschutz/     #5c4b3a auf #f5efe4 = 7.27 (Soll 4.5, 14px, 'Handwerk') | #f5efe4 auf #2a2018 = 13.92 (Soll 4.5, 17px, 'Zum Inhalt springe') | #2a2018 auf #f5efe4 = 13.92 (Soll 3, 22px, 'Dein Firmenname')
+  /beispiel-2/                 #1d6b5f auf #e3f0eb = 5.4 (Soll 4.5, 21px, 'Dreißig Minuten.') | #43605a auf #e3f0eb = 5.86 (Soll 4.5, 20px, 'Wir behandeln Rück') | #ffffff auf #1d6b5f = 6.32 (Soll 4.5, 17px, 'Termin anfragen')
+  /beispiel-2/impressum/       #43605a auf #f6faf8 = 6.52 (Soll 4.5, 14px, 'Praxis') | #f6faf8 auf #15302b = 13.39 (Soll 4.5, 17px, 'Zum Inhalt springe') | #15302b auf #f6faf8 = 13.39 (Soll 3, 20px, 'Dein Firmenname')
+  /beispiel-2/datenschutz/     #43605a auf #f6faf8 = 6.52 (Soll 4.5, 14px, 'Praxis') | #f6faf8 auf #15302b = 13.39 (Soll 4.5, 17px, 'Zum Inhalt springe') | #15302b auf #f6faf8 = 13.39 (Soll 3, 20px, 'Dein Firmenname')
+  /beispiel-3/                 #c9d0ee auf #2036c9 = 5.65 (Soll 4.5, 20px, 'Ein bis zwei Sätze') | #414a6b auf #edf0f7 = 7.62 (Soll 4.5, 14px, 'Coaching') | #f6f7fb auf #2036c9 = 8.06 (Soll 3, 93px, 'Neue Richtung im B')
+  /beispiel-3/impressum/       #414a6b auf #edf0f7 = 7.62 (Soll 4.5, 14px, 'Coaching') | #edf0f7 auf #0e1230 = 16.04 (Soll 4.5, 17px, 'Zum Inhalt springe') | #0e1230 auf #edf0f7 = 16.04 (Soll 3, 24px, 'Dein Firmenname')
+  /beispiel-3/datenschutz/     #414a6b auf #edf0f7 = 7.62 (Soll 4.5, 14px, 'Coaching') | #edf0f7 auf #0e1230 = 16.04 (Soll 4.5, 17px, 'Zum Inhalt springe') | #0e1230 auf #edf0f7 = 16.04 (Soll 3, 24px, 'Dein Firmenname')
+
+Pixel-Abweichungen beim Hintergrund (Element, erwartet laut DOM, gefunden im Bild): 15
+   ('/beispiel-1/', 1440, 'Gerade, gewendelt oder m', '#f5efe4', '#8a3d12')
+   ('/beispiel-1/', 1440, 'Stufen tauschen, Gelände', '#f5efe4', '#8a3d12')
+   ('/beispiel-1/', 1440, 'Aus Holz, mit oder ohne ', '#f5efe4', '#8a3d12')
+   ('/beispiel-1/', 390, 'Gerade, gewendelt oder m', '#f5efe4', '#8a3d12')
+   ('/beispiel-1/', 390, 'Stufen tauschen, Gelände', '#f5efe4', '#8a3d12')
+   ('/beispiel-1/', 390, 'Aus Holz, mit oder ohne ', '#f5efe4', '#8a3d12')
+   ('/beispiel-2/', 1440, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 1440, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 1440, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 1440, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 390, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 390, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 390, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-2/', 390, 'Zeichen counter(schritt)', '#1d6b5f', '#f6faf8')
+   ('/beispiel-3/', 1440, 'Unterlagen schärfen, Ges', '#edf0f7', '#0e1230')

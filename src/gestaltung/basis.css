@@ -14,6 +14,8 @@ a { color: inherit; }
 .sprungmarke { position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: .75rem 1rem; background: var(--text); color: var(--grund); }
 .sprungmarke:focus { top: 1rem; }
 
+/* Luft am Fensterrand, damit der Fokusrahmen (3 px + 3 px Abstand) nicht abgeschnitten wird */
+html { scroll-padding-block: 1rem; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 

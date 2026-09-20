@@ -1,0 +1,25 @@
+Links geprüft: 95, Fehler: 0
+  /                          Links ok: 3, Fehler: 0
+  /beispiel-1/               Links ok: 13, Fehler: 0
+  /beispiel-1/impressum/     Links ok: 9, Fehler: 0
+  /beispiel-1/datenschutz/   Links ok: 9, Fehler: 0
+  /beispiel-2/               Links ok: 13, Fehler: 0
+  /beispiel-2/impressum/     Links ok: 9, Fehler: 0
+  /beispiel-2/datenschutz/   Links ok: 9, Fehler: 0
+  /beispiel-3/               Links ok: 12, Fehler: 0
+  /beispiel-3/impressum/     Links ok: 9, Fehler: 0
+  /beispiel-3/datenschutz/   Links ok: 9, Fehler: 0
+Von der Übersicht erreichbar: 10 von 10 Seiten; nicht erreichbar: []
+Sprungziele und Ziele im Beispiel (Auszug):
+   #inhalt                      Status 200 /beispiel-3/, Sprungziel #inhalt vorhanden
+   /beispiel-3/                 Status 200 /beispiel-3/
+   /beispiel-3/#angebot         Status 200 /beispiel-3/, Sprungziel #angebot vorhanden
+   /beispiel-3/#ablauf          Status 200 /beispiel-3/, Sprungziel #ablauf vorhanden
+   /beispiel-3/#vertrauen       Status 200 /beispiel-3/, Sprungziel #vertrauen vorhanden
+   /beispiel-3/#kontakt         Status 200 /beispiel-3/, Sprungziel #kontakt vorhanden
+   #kontakt                     Status 200 /beispiel-3/, Sprungziel #kontakt vorhanden
+   mailto:kontakt@example.org   Adresse kontakt@example.org (example.org)
+   tel:0000000000               Nummer 0000000000 (nur Nullen)
+   /beispiel-3/impressum/       Status 200 /beispiel-3/impressum/
+   /beispiel-3/datenschutz/     Status 200 /beispiel-3/datenschutz/
+   /                            Status 200 /

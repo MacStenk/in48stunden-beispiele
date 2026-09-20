@@ -1,0 +1,11 @@
+Seite                           KB  Grenze 500
+/beispiel-1/datenschutz/      89.9  unter
+/beispiel-1/impressum/        88.9  unter
+/beispiel-1/                  91.9  unter
+/beispiel-2/datenschutz/      41.8  unter
+/beispiel-2/impressum/        40.7  unter
+/beispiel-2/                  43.6  unter
+/beispiel-3/datenschutz/      57.6  unter
+/beispiel-3/impressum/        56.5  unter
+/beispiel-3/                  58.1  unter
+/                              0.5  unter
