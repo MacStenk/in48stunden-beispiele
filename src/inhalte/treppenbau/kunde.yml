@@ -1,0 +1,18 @@
+# Alles Kundenspezifische dieses Beispiels steht hier. Die Texte liegen in den Markdown-Dateien daneben.
+# Erfundener Betrieb: keine echte Anschrift, keine echte Rufnummer, E-Mail nur auf example.org.
+name: Treppenbau Thalberg
+kurzbeschreibung: Holztreppen für Haus und Wohnung
+ort: Beispielstadt
+inhaber: "[Name des Inhabers]"
+strasse: "[Straße und Hausnummer]"
+plz_ort: "[PLZ] Beispielstadt"
+telefon: "0000 000000"
+email: info@example.org
+zeiten: Montag bis Freitag, 7 bis 16 Uhr
+farben:
+  grund: "#F5EFE4"
+  flaeche: "#E9DDC8"
+  text: "#2A2018"
+  gedaempft: "#5C4B3A"
+  akzent: "#8A3D12"
+  dunkel: "#2A2018"

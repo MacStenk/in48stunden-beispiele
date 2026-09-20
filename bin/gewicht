@@ -21,9 +21,14 @@ const dateien = (ordner) =>
 // Lokale Ziele aus einer Quelle holen: HTML-Attribute oder CSS url(...).
 const verweise = (pfad, text) => {
   const roh = [];
+  const cssUrls = (css) => {
+    for (const m of css.matchAll(/url\(\s*['"]?([^'")]+)['"]?\s*\)/g)) roh.push(m[1]);
+  };
   if (pfad.endsWith('.css')) {
-    for (const m of text.matchAll(/url\(\s*['"]?([^'")]+)['"]?\s*\)/g)) roh.push(m[1]);
+    cssUrls(text);
   } else if (pfad.endsWith('.html')) {
+    // Eingebettetes CSS (Astro bettet kleine Stile in die Seite ein) verweist auch auf Schriften.
+    for (const m of text.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)) cssUrls(m[1]);
     for (const m of text.matchAll(/<(?:link|script|img|source|video|audio|image)\b[^>]*>/gi)) {
       const tag = m[0];
       const rel = /\brel=["']?([^"'\s>]+)/i.exec(tag)?.[1] ?? '';

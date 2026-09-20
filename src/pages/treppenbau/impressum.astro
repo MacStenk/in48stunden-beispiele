@@ -1,0 +1,23 @@
+---
+import { getEntry, render } from 'astro:content';
+import Rahmen from '../../layouts/Rahmen.astro';
+import '../../gestaltung/basis.css';
+import '../../gestaltung/treppenbau.css';
+
+const seite = (await getEntry('inhalte', 'treppenbau/impressum'))!;
+const k = (await getEntry('kunden', 'treppenbau/kunde'))!.data;
+const { Content } = await render(seite);
+---
+<Rahmen betrieb="treppenbau" titel={seite.data.titel}>
+  <div class="inhalt schmal text-seite">
+    <h1>{seite.data.titel}</h1>
+    <Content />
+    <dl>
+      <dt>Betrieb</dt><dd>{k.name}</dd>
+      <dt>Inhaber</dt><dd>{k.inhaber}</dd>
+      <dt>Anschrift</dt><dd>{k.strasse}, {k.plz_ort}</dd>
+      <dt>Telefon</dt><dd>{k.telefon}</dd>
+      <dt>E-Mail</dt><dd>{k.email}</dd>
+    </dl>
+  </div>
+</Rahmen>

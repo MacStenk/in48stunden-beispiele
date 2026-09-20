@@ -1,0 +1,18 @@
+/* Grundlagen für alle Beispiele: Maße, Lesbarkeit, Tastatur. Das Aussehen steckt je Betrieb in einer eigenen Datei. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
+svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+
+.inhalt { max-width: 68rem; margin-inline: auto; padding-inline: 1.25rem; }
+.schmal { max-width: 42rem; }
+
+:focus-visible { outline: 3px solid var(--fokus, var(--akzent)); outline-offset: 3px; }
+.dunkel { --fokus: var(--grund); }
+
+.sprungmarke { position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: .75rem 1rem; background: var(--text); color: var(--grund); }
+.sprungmarke:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }

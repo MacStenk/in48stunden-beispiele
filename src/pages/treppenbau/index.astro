@@ -1,0 +1,65 @@
+---
+import { getEntry, render } from 'astro:content';
+import Rahmen from '../../layouts/Rahmen.astro';
+import Stufen from '../../components/Stufen.astro';
+import FotoPlatzhalter from '../../components/FotoPlatzhalter.astro';
+import '../../gestaltung/basis.css';
+import '../../gestaltung/treppenbau.css';
+
+const [start, angebot, ablauf, vertrauen, kontakt, kunde] = await Promise.all(
+  ['start', 'angebot', 'ablauf', 'vertrauen', 'kontakt'].map((n) => getEntry('inhalte', `treppenbau/${n}`)).concat(getEntry('kunden', 'treppenbau/kunde')),
+);
+const { Content: Start } = await render(start!);
+const { Content: Angebot } = await render(angebot!);
+const { Content: Ablauf } = await render(ablauf!);
+const { Content: Vertrauen } = await render(vertrauen!);
+const { Content: Kontakt } = await render(kontakt!);
+const k = kunde!.data;
+---
+<Rahmen betrieb="treppenbau" titel="Holztreppen für Haus und Wohnung">
+  <div class="inhalt einstieg">
+    <div>
+      <h1>{start!.data.titel}</h1>
+      <Start />
+      <a class="knopf" href="#kontakt">{start!.data.knopf}</a>
+    </div>
+    <Stufen />
+  </div>
+
+  <section class="angebot" id="angebot">
+    <div class="inhalt">
+      <h2>{angebot!.data.titel}</h2>
+      <Angebot />
+    </div>
+  </section>
+
+  <section class="ablauf" id="ablauf">
+    <div class="inhalt">
+      <h2>{ablauf!.data.titel}</h2>
+      <Ablauf />
+    </div>
+  </section>
+
+  <section class="vertrauen" id="vertrauen">
+    <div class="inhalt vertrauen-innen">
+      <div>
+        <h2>{vertrauen!.data.titel}</h2>
+        <Vertrauen />
+      </div>
+      <FotoPlatzhalter beschriftung={vertrauen!.data.foto} />
+    </div>
+  </section>
+
+  <section class="kontakt dunkel" id="kontakt">
+    <div class="inhalt">
+      <h2>{kontakt!.data.titel}</h2>
+      <Kontakt />
+      <p class="kontakt-liste">
+        <a href={`tel:${k.telefon.replaceAll(' ', '')}`}>{k.telefon}</a>
+        <a href={`mailto:${k.email}`}>{k.email}</a>
+        <span>{k.zeiten}</span>
+      </p>
+      <a class="knopf" href={`mailto:${k.email}`}>Jetzt schreiben</a>
+    </div>
+  </section>
+</Rahmen>

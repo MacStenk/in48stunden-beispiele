@@ -1,0 +1,46 @@
+---
+// Gemeinsamer Rahmen: Kopf, Sprungmarke, Fuß mit den Pflicht-Hinweisen. Die Farben kommen aus kunde.yml.
+import { getEntry } from 'astro:content';
+
+const { betrieb, titel } = Astro.props;
+const kunde = (await getEntry('kunden', `${betrieb}/kunde`))!.data;
+const farben = Object.entries(kunde.farben).map(([name, wert]) => `--${name}:${wert}`).join(';');
+const basis = `/${betrieb}/`;
+---
+<!doctype html>
+<html lang="de" style={farben}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titel} · {kunde.name}</title>
+    <link rel="icon" type="image/svg+xml" href={`${basis}sinnbild.svg`} />
+  </head>
+  <body>
+    <a class="sprungmarke" href="#inhalt">Zum Inhalt springen</a>
+    <header class="kopf">
+      <div class="inhalt kopf-innen">
+        <a class="name" href={basis}>{kunde.name}</a>
+        <nav aria-label="Hauptmenü">
+          <a href={`${basis}#angebot`}>Angebot</a>
+          <a href={`${basis}#ablauf`}>Ablauf</a>
+          <a href={`${basis}#vertrauen`}>Vertrauen</a>
+          <a href={`${basis}#kontakt`}>Kontakt</a>
+        </nav>
+      </div>
+    </header>
+    <main id="inhalt">
+      <slot />
+    </main>
+    <footer class="fuss">
+      <div class="inhalt">
+        <p class="hinweis">Beispielseite. Der Betrieb ist erfunden, alle Angaben sind Platzhalter.</p>
+        <p class="hinweis">Betrieb erfunden, Fotos kommen vom Kunden.</p>
+        <p class="fuss-links">
+          <a href={`${basis}impressum/`}>Impressum</a>
+          <a href={`${basis}datenschutz/`}>Datenschutz</a>
+          <a href="/">Alle Beispielseiten</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
