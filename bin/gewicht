@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+// Gewichts-Wächter: baut die Seite und misst je HTML-Seite, was ein Erstbesucher lädt.
+// Summe der unkomprimierten Bytes: die Seite selbst plus alle eingebundenen lokalen
+// Dateien (CSS, JS, Schriften, Bilder), jede Datei einmal. 1 KB = 1024 Byte.
+// Rückgabewert 1, wenn eine Seite die Grenze reißt.
+import { execSync } from 'node:child_process';
+import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
+
+const GRENZE_KB = 500;
+const wurzel = resolve(import.meta.dirname, '..');
+const dist = join(wurzel, 'dist');
+
+execSync('npm run build', { cwd: wurzel, stdio: 'ignore' });
+
+const dateien = (ordner) =>
+  readdirSync(ordner, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? dateien(join(ordner, e.name)) : [join(ordner, e.name)],
+  );
+
+// Lokale Ziele aus einer Quelle holen: HTML-Attribute oder CSS url(...).
+const verweise = (pfad, text) => {
+  const roh = [];
+  if (pfad.endsWith('.css')) {
+    for (const m of text.matchAll(/url\(\s*['"]?([^'")]+)['"]?\s*\)/g)) roh.push(m[1]);
+  } else if (pfad.endsWith('.html')) {
+    for (const m of text.matchAll(/<(?:link|script|img|source|video|audio|image)\b[^>]*>/gi)) {
+      const tag = m[0];
+      const rel = /\brel=["']?([^"'\s>]+)/i.exec(tag)?.[1] ?? '';
+      if (/^<link/i.test(tag) && !/stylesheet|icon|preload|modulepreload/i.test(rel)) continue;
+      for (const a of tag.matchAll(/\b(?:src|href|poster)=["']([^"']+)["']/gi)) roh.push(a[1]);
+      for (const s of tag.matchAll(/\bsrcset=["']([^"']+)["']/gi))
+        for (const teil of s[1].split(',')) roh.push(teil.trim().split(/\s+/)[0]);
+    }
+  }
+  return roh
+    .filter((u) => u && !/^(https?:)?\/\//i.test(u) && !/^(data|mailto|tel|#)/i.test(u))
+    .map((u) => u.split(/[?#]/)[0])
+    .map((u) => (u.startsWith('/') ? join(dist, u) : resolve(dirname(pfad), u)))
+    .filter((p) => existsSync(p) && statSync(p).isFile());
+};
+
+const gewicht = (seite) => {
+  const gesehen = new Set();
+  const stapel = [seite];
+  while (stapel.length) {
+    const pfad = stapel.pop();
+    if (gesehen.has(pfad)) continue;
+    gesehen.add(pfad);
+    if (/\.(html|css)$/.test(pfad)) stapel.push(...verweise(pfad, readFileSync(pfad, 'utf8')));
+  }
+  return [...gesehen].reduce((summe, p) => summe + statSync(p).size, 0);
+};
+
+const seiten = dateien(dist).filter((p) => p.endsWith('.html')).sort();
+const zeilen = seiten.map((p) => {
+  const kb = gewicht(p) / 1024;
+  return { seite: '/' + relative(dist, p).replace(/index\.html$/, ''), kb, ok: kb < GRENZE_KB };
+});
+
+const breite = Math.max(5, ...zeilen.map((z) => z.seite.length));
+console.log(`${'Seite'.padEnd(breite)}  ${'KB'.padStart(8)}  Grenze ${GRENZE_KB}`);
+for (const z of zeilen)
+  console.log(`${z.seite.padEnd(breite)}  ${z.kb.toFixed(1).padStart(8)}  ${z.ok ? 'unter' : 'ÜBER'}`);
+
+const gerissen = zeilen.filter((z) => !z.ok);
+if (gerissen.length) {
+  console.error(`\n${gerissen.length} Seite(n) über ${GRENZE_KB} KB.`);
+  process.exit(1);
+}
