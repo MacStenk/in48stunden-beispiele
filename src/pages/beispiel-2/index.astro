@@ -1,0 +1,67 @@
+---
+import { getEntry, render } from 'astro:content';
+import Rahmen from '../../layouts/Rahmen.astro';
+import Welle from '../../components/beispiel-2/Welle.astro';
+import Foto from '../../components/beispiel-2/Foto.astro';
+import '../../gestaltung/basis.css';
+import '../../gestaltung/beispiel-2.css';
+
+const [start, vertrauen, angebot, ablauf, kontakt, kunde] = await Promise.all(
+  ['start', 'vertrauen', 'angebot', 'ablauf', 'kontakt'].map((n) => getEntry('inhalte', `beispiel-2/${n}`)).concat(getEntry('kunden', 'beispiel-2/kunde')),
+);
+const { Content: Start } = await render(start!);
+const { Content: Vertrauen } = await render(vertrauen!);
+const { Content: Angebot } = await render(angebot!);
+const { Content: Ablauf } = await render(ablauf!);
+const { Content: Kontakt } = await render(kontakt!);
+const k = kunde!.data;
+---
+<Rahmen betrieb="beispiel-2" titel="Physiotherapie in Beispielstadt">
+  <section class="einstieg">
+    <div class="inhalt">
+      <h1>{start!.data.titel}</h1>
+      <Start />
+      <a class="knopf" href="#kontakt">{start!.data.knopf}</a>
+    </div>
+    <Welle />
+  </section>
+
+  <section class="vertrauen" id="vertrauen">
+    <div class="inhalt">
+      <h2>{vertrauen!.data.titel}</h2>
+      <Vertrauen />
+      <Foto />
+    </div>
+  </section>
+
+  <section class="angebot" id="angebot">
+    <div class="inhalt">
+      <h2>{angebot!.data.titel}</h2>
+      <Angebot />
+    </div>
+  </section>
+
+  <section class="ablauf" id="ablauf">
+    <div class="inhalt">
+      <h2>{ablauf!.data.titel}</h2>
+      <Ablauf />
+    </div>
+  </section>
+
+  <section class="kontakt" id="kontakt">
+    <div class="inhalt">
+      <div class="kontakt-karte">
+        <div>
+          <h2>{kontakt!.data.titel}</h2>
+          <Kontakt />
+          <a class="knopf" href={`mailto:${k.email}`}>Termin anfragen</a>
+        </div>
+        <p class="kontakt-liste">
+          <a href={`tel:${k.telefon.replaceAll(' ', '')}`}>{k.telefon}</a>
+          <a href={`mailto:${k.email}`}>{k.email}</a>
+          <span>{k.zeiten}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+</Rahmen>

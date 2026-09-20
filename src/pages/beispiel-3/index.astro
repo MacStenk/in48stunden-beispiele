@@ -1,0 +1,55 @@
+---
+import { getEntry, render } from 'astro:content';
+import Rahmen from '../../layouts/Rahmen.astro';
+import Foto from '../../components/beispiel-3/Foto.astro';
+import '../../gestaltung/basis.css';
+import '../../gestaltung/beispiel-3.css';
+
+const [start, angebot, ablauf, vertrauen, kontakt, kunde] = await Promise.all(
+  ['start', 'angebot', 'ablauf', 'vertrauen', 'kontakt'].map((n) => getEntry('inhalte', `beispiel-3/${n}`)).concat(getEntry('kunden', 'beispiel-3/kunde')),
+);
+const { Content: Start } = await render(start!);
+const { Content: Angebot } = await render(angebot!);
+const { Content: Ablauf } = await render(ablauf!);
+const { Content: Vertrauen } = await render(vertrauen!);
+const { Content: Kontakt } = await render(kontakt!);
+const k = kunde!.data;
+---
+<Rahmen betrieb="beispiel-3" titel="Coaching">
+  <div class="wand-rahmen">
+    <div class="wand">
+      <section class="einstieg">
+        <h1>{start!.data.titel}</h1>
+        <Start />
+        <a class="knopf" href="#kontakt">{start!.data.knopf}</a>
+      </section>
+
+      <div class="foto"><Foto /></div>
+
+      <section class="angebot" id="angebot">
+        <h2 class="nur-leser">{angebot!.data.titel}</h2>
+        <Angebot />
+      </section>
+
+      <section class="ablauf" id="ablauf">
+        <h2>{ablauf!.data.titel}</h2>
+        <Ablauf />
+      </section>
+
+      <section class="vertrauen" id="vertrauen">
+        <h2>{vertrauen!.data.titel}</h2>
+        <Vertrauen />
+      </section>
+
+      <section class="kontakt" id="kontakt">
+        <h2>{kontakt!.data.titel}</h2>
+        <Kontakt />
+        <a class="kontakt-mail" href={`mailto:${k.email}`}>{k.email}</a>
+        <p class="kontakt-liste">
+          <a href={`tel:${k.telefon.replaceAll(' ', '')}`}>{k.telefon}</a>
+          <span>{k.zeiten}</span>
+        </p>
+      </section>
+    </div>
+  </div>
+</Rahmen>

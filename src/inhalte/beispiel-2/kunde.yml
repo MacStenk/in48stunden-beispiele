@@ -1,0 +1,24 @@
+# Alles Kundenspezifische dieses Beispiels steht hier. Die Texte liegen in den Markdown-Dateien daneben.
+# Beispiel ohne Firmennamen: Name, Anschrift und Inhaber sind Platzhalter, Rufnummer nur Nullen, E-Mail nur auf example.org.
+name: Dein Firmenname
+branche: Praxis
+ort: Beispielstadt
+inhaber: "[Name der Praxisleitung]"
+strasse: "[Straße und Hausnummer]"
+plz_ort: "[PLZ] Beispielstadt"
+telefon: "0000 000000"
+email: termin@example.org
+zeiten: Montag bis Donnerstag 8 bis 18 Uhr, Freitag 8 bis 14 Uhr
+menue:
+  - { id: vertrauen, text: Die Praxis }
+  - { id: angebot, text: Behandlungen }
+  - { id: ablauf, text: Ihr erster Termin }
+  - { id: kontakt, text: Kontakt }
+farben:
+  grund: "#F6FAF8"
+  flaeche: "#E3F0EB"
+  hell: "#FFFFFF"
+  text: "#15302B"
+  gedaempft: "#43605A"
+  akzent: "#1D6B5F"
+  dunkel: "#12403A"

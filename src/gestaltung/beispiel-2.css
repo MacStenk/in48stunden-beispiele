@@ -1,0 +1,73 @@
+/* Beispiel 2 (Praxis): hell, ruhig, weich. Farben kommen aus kunde.yml. */
+@font-face { font-family: "Figtree"; font-weight: 400; font-display: swap; src: url("./schriften/figtree-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-weight: 600; font-display: swap; src: url("./schriften/figtree-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-weight: 700; font-display: swap; src: url("./schriften/figtree-latin-700-normal.woff2") format("woff2"); }
+
+body { background: var(--grund); color: var(--text); font-family: "Figtree", system-ui, sans-serif; }
+h1, h2, h3, .name { font-weight: 700; line-height: 1.15; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.35rem); margin-bottom: 1.5rem; }
+strong { font-weight: 600; }
+p { margin: 0 0 1rem; max-width: 40rem; }
+section { padding-block: clamp(2.5rem, 7vw, 5rem); }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+/* Kopf */
+.kopf-innen { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.1rem; }
+.name { display: inline-flex; align-items: center; gap: .6rem; min-height: 1.5rem; font-size: 1.25rem; text-decoration: none; }
+.name::before { content: ""; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--akzent); }
+.untertitel { padding-left: 1.7rem; }
+.kopf nav { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin-inline: -.75rem; }
+.kopf nav a { padding: .5rem .75rem; text-decoration: none; font-weight: 600; border-radius: 999px; transition: background-color 160ms ease; }
+.kopf nav a:hover { background: var(--flaeche); }
+
+/* Knopf */
+.knopf { display: inline-block; min-height: 3rem; padding: .8rem 1.8rem; background: var(--akzent); color: var(--hell); font-weight: 600; text-decoration: none; border-radius: 999px; transition: background-color 180ms ease; }
+.knopf:hover { background: var(--dunkel); }
+
+/* Einstieg: mittig, auf sanfter Fläche mit Welle, kein Foto */
+.einstieg { background: var(--flaeche); text-align: center; padding-bottom: 0; padding-top: clamp(3rem, 9vw, 6rem); }
+.einstieg .inhalt { max-width: 46rem; }
+.einstieg h1 { font-size: clamp(2.3rem, 6.5vw, 3.75rem); margin-bottom: 1.25rem; }
+.einstieg p { font-size: 1.25rem; margin-inline: auto; color: var(--gedaempft); }
+.welle { width: 100%; height: clamp(3rem, 8vw, 6rem); margin-top: clamp(2rem, 6vw, 4rem); fill: var(--grund); }
+
+/* Die Praxis: vier Kacheln, darunter die Fläche für ein späteres Foto */
+.vertrauen { padding-top: clamp(1.5rem, 4vw, 2.5rem); }
+.vertrauen ul { display: grid; gap: 1rem; }
+.vertrauen li { padding: 1.5rem; background: var(--flaeche); border-radius: 1.25rem; }
+.vertrauen strong { display: block; margin-bottom: .35rem; font-size: 1.3rem; color: var(--akzent); }
+@media (min-width: 40em) { .vertrauen ul { grid-template-columns: 1fr 1fr; } }
+
+.foto-platz { margin: 1.5rem 0 0; border-radius: 1.5rem; overflow: hidden; }
+.foto-platz svg { width: 100%; height: clamp(10rem, 28vw, 17rem); }
+.fp-grund { fill: var(--flaeche); }
+.fp-sonne { fill: var(--hell); }
+.fp-huegel1 { fill: #BFDCD3; }
+.fp-huegel2 { fill: var(--akzent); }
+
+/* Behandlungen: Liste mit feinen Linien */
+.angebot { background: var(--hell); }
+.angebot li { display: grid; gap: .25rem 2rem; padding-block: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--akzent) 30%, transparent); }
+.angebot li:last-child { border-bottom: 1px solid color-mix(in srgb, var(--akzent) 30%, transparent); }
+.angebot strong { font-size: 1.25rem; color: var(--akzent); }
+@media (min-width: 48em) { .angebot li { grid-template-columns: 15rem 1fr; } }
+
+/* Erster Termin: Zeitleiste, am Handy senkrecht */
+.ablauf ol { counter-reset: schritt; display: grid; gap: 1.75rem; }
+.ablauf li { counter-increment: schritt; position: relative; padding-left: 4rem; }
+.ablauf li::before { content: counter(schritt); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--akzent); color: var(--hell); font-weight: 700; font-size: 1.15rem; }
+.ablauf li:not(:last-child)::after { content: ""; position: absolute; left: 1.3rem; top: 3.25rem; bottom: -1.5rem; width: 2px; background: color-mix(in srgb, var(--akzent) 30%, transparent); }
+.ablauf strong { display: block; margin-bottom: .2rem; font-size: 1.2rem; }
+@media (min-width: 52em) {
+  .ablauf ol { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+  .ablauf li { padding: 3.75rem 0 0; }
+  .ablauf li:not(:last-child)::after { left: 3.5rem; right: -1.5rem; top: 1.3rem; bottom: auto; width: auto; height: 2px; }
+}
+
+/* Kontakt: eine helle Karte */
+.kontakt { background: var(--flaeche); }
+.kontakt-karte { display: grid; gap: 1.5rem 3rem; padding: clamp(1.5rem, 5vw, 3rem); background: var(--hell); border-radius: 1.5rem; }
+.kontakt-liste { margin: 0; }
+.kontakt-liste a { display: block; font-size: 1.5rem; font-weight: 700; color: var(--akzent); }
+.kontakt-liste span { display: block; margin-top: .75rem; color: var(--gedaempft); }
+@media (min-width: 48em) { .kontakt-karte { grid-template-columns: 1.2fr .8fr; align-items: start; } }

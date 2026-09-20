@@ -1,0 +1,25 @@
+# Alles Kundenspezifische dieses Beispiels steht hier. Die Texte liegen in den Markdown-Dateien daneben.
+# Beispiel ohne Firmennamen: Name, Anschrift und Inhaber sind Platzhalter, Rufnummer nur Nullen, E-Mail nur auf example.org.
+name: Dein Firmenname
+branche: Coaching
+ort: Beispielstadt
+inhaber: "[Name der Coachin oder des Coaches]"
+strasse: "[Straße und Hausnummer]"
+plz_ort: "[PLZ] Beispielstadt"
+telefon: "0000 000000"
+email: kontakt@example.org
+zeiten: Gespräche nach Vereinbarung, meist Dienstag bis Donnerstag
+menue:
+  - { id: angebot, text: Formate }
+  - { id: ablauf, text: So arbeite ich }
+  - { id: vertrauen, text: Über mich }
+  - { id: kontakt, text: Kontakt }
+farben:
+  grund: "#EDF0F7"
+  flaeche: "#DCE1EF"
+  text: "#0E1230"
+  gedaempft: "#414A6B"
+  akzent: "#2036C9"
+  gelb: "#FFD23F"
+  hell: "#F6F7FB"
+  hellgedaempft: "#C9D0EE"
